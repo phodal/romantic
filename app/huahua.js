@@ -15,7 +15,7 @@ var factory = function(
         },
 
         propose: function(){
-	        var reply = "I want to spend the rest of my life with you.";
+	        var reply = "hmmmm.....I wanna share my life with you too";
             behavior.say(this.name + ": " + reply);
             console.log(this.name + ": " + reply);
             return reply;
