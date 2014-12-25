@@ -1,6 +1,7 @@
 var factory = function(
     _,
-    phodal
+    phodal,
+    behavior
 ) {
     var Propose = function () {
     };
@@ -12,8 +13,9 @@ var factory = function(
         },
         propose: function(){
             this.times ++;
-            var reply = "I need time to consider carefully.";
-            console.log("Huahua:" + reply);
+            var reply ="Huahua:" + "I need time to consider carefully.";
+            console.log(reply);
+            behavior.say(reply);
             if(this.times === 99){
                 phodal.command("marry me!");
             }
@@ -26,11 +28,13 @@ var factory = function(
 if (typeof module !== "undefined" && module.exports) {
     module.exports = factory(
         require("underscore"),
-        require("phodal")
+        require("phodal"),
+        require("behavior")
     );
 } else if (typeof define !== "undefined") {
     define([
         "underscore",
-        "phodal"
+        "phodal",
+        "behavior"
     ], factory);
 }

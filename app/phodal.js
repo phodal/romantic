@@ -1,5 +1,6 @@
 var factory = function(
-    _
+    _,
+    behavior
 ) {
     var Phodal = function () {
     };
@@ -11,7 +12,7 @@ var factory = function(
             return  function (p2){
                 return function(p3){
                     return function(p4){
-	                    var questions = p1 + ' ' + p2 + ' ' + p3 + ' ' + p4 + '?';
+	                    var questions = "Phodal" + ": " + p1 + ' ' + p2 + ' ' + p3 + ' ' + p4 + '?';
                         console.log("Phodal" + ": " + questions);
                         return questions;
                     }
@@ -20,13 +21,16 @@ var factory = function(
         },
 
         command: function(message){
-            console.log(this.name + ": " + message);
-            return this.name + ": " + message;
+	        var command = this.name + ": " + message;
+            console.log(command);
+            behavior.listen(command);
+            return command;
         },
 
         love: function() {
             var message = this.name + ": "+ "I love you";
             console.log(message);
+            behavior.listen(message);
             return true;
         }
     });
@@ -35,10 +39,12 @@ var factory = function(
 
 if (typeof module !== "undefined" && module.exports) {
     module.exports = factory(
-        require("underscore")
+        require("underscore"),
+        require("behavior")
     );
 } else if (typeof define !== "undefined") {
     define([
-        "underscore"
+        "underscore",
+        "behavior"
     ], factory);
 }

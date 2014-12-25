@@ -1,0 +1,15 @@
+#body {
+    width: 100%;
+}
+
+#huahua {
+    float:right;
+    width:50%;
+    position: relative;
+}
+
+#phodal {
+    float:left;
+    width:50%;
+    position: relative;
+}

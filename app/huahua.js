@@ -1,22 +1,22 @@
 var factory = function(
     _,
     propose,
-    lovers
+    behavior
 ) {
     var Huahua = function () {
     };
 
-    Huahua.prototype = lovers;
     Huahua.prototype.reply = propose;
     _.extend(Huahua.prototype, {
         name: "Huahua",
 
-        listen: function() {
-            //console.log("");
+        listen: function(message) {
+            behavior.listen(message);
         },
 
         propose: function(){
 	        var reply = "I want to spend the rest of my life with you.";
+            behavior.say(this.name + ": " + reply);
             console.log(this.name + ": " + reply);
             return reply;
         },
@@ -24,6 +24,7 @@ var factory = function(
         love: function() {
             var message = this.name + ": "+ "I love you";
             console.log(message);
+            behavior.say(message);
             return true;
         }
     });
@@ -35,12 +36,12 @@ if (typeof module !== "undefined" && module.exports) {
     module.exports = factory(
         require("underscore"),
         require("propose"),
-        require("lovers")
+        require("behavior")
     );
 } else if (typeof define !== "undefined") {
     define([
         "underscore",
         "propose",
-        "lovers"
+        "behavior"
     ], factory);
 }
