@@ -17,7 +17,7 @@ var factory = function(
             console.log(reply);
             behavior.say(reply);
             if(this.times === 99){
-                phodal.command("marry me!");
+                phodal.command("marry me! I want to spend the rest of my life with you.");
             }
             return reply;
         }
