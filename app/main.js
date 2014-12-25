@@ -5,5 +5,5 @@ define(["jquery", "huahua", "phodal", "propose"], function($, huahua, phodal, pr
     }
     huahua.propose("Yes");
     var ever = phodal.love(huahua) && huahua.love(phodal);
-    //for(ever;;);
+    for(ever;;);
 });
