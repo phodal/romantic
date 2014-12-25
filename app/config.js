@@ -1,7 +1,7 @@
 require.config({
     paths: {
-        "jquery": "../bower_components/jquery/dist/jquery",
-        "underscore": "../bower_components/underscore/underscore"
+        "jquery": "../libs/jquery",
+        "underscore": "../libs/underscore"
     },
     shim: {
         jquery: {
